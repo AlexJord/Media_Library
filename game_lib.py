@@ -8,7 +8,73 @@ import pickle
 games = {}
 def add_game():
     print("\nadd_game ran")
-   
+    new_key = len(games) + 1
+    new_entry = []
+    valid = False
+    while not valid:
+        #input stuff
+        genre = input("What is the Genre?: ")
+        new_entry.append(genre)
+        title = input("What is the Title?: ")
+        new_entry.append(title)
+        developer = input("Who is the Developer?: ")
+        new_entry.append(developer)
+        publisher = input("Who is the Publisher?: ")
+        new_entry.append(publisher)
+        system = input("What is the System?: ")
+        new_entry.append(system)
+        release = input("When was the Release Date?: ")
+        new_entry.append(release)   
+        rating = input("What is the Rating?: ")
+        new_entry.append(rating)        
+        sing_multi = input("Is is Single or Multiplayer?: ")
+        new_entry.append(sing_multi)        
+        price = input("What is the Price?: ")
+        new_entry.append(price)        
+        beat_game = input("Have you Beat the Game?: ")
+        new_entry.append(beat_game)        
+        purchase = input("What is the date you purchased the game?: ")
+        new_entry.append(purchase) 
+        notes = input("Any Notes?: ")
+        new_entry.append(notes)      
+        answer = input("Is this correct?: ")
+        valid = True
+    games[new_key] = new_entry
+    
+    
+def edit_game():
+    print("Here is the Library: ")
+    for key in games.keys():
+        print(key, "-", games[key][1])
+        
+    edit_key = int(input("Which game do you want to edit?: "))        
+    edit_entry = games[edit_key]
+    print("Current Genre: ", edit_entry[0])
+    print("Current Title: ", edit_entry[1])
+    print("Current Developer: ", edit_entry[2])
+    print("Current Publisher: ", edit_entry[3])
+    print("Current System: ", edit_entry[4])
+    print("Current Release Date: ", edit_entry[5])
+    print("Current Rating: ", edit_entry[6])
+    print("Current Single/Multiplayer choice: ", edit_entry[7])
+    print("Current Price: ", edit_entry[8])
+    print("Current status on beating the game: ", edit_entry[9])
+    print("Current Purchase Date: ", edit_entry[10])
+    print("Current Notes: ", edit_entry[11])
+    edit_entry[0] = input("New Genre: ")
+    edit_entry[1] = input("New Title: ")
+    edit_entry[2] = input("New Developer: ")
+    edit_entry[3] = input("New Publisher: ")
+    edit_entry[4] = input("New System: ")  
+    edit_entry[5] = input("New Release Date: ")
+    edit_entry[6] = input("New Rating: ")
+    edit_entry[7] = input("New Single or Multiplayer choice: ")
+    edit_entry[8] = input("New Price: ")
+    edit_entry[9] = input("Change if you beat the game: ")
+    edit_entry[10] = input("New Purchase Date: ")
+    edit_entry[11] = input("New Notes: ")
+    
+        
 def print_all():
     key_list = games.keys()
        
@@ -22,10 +88,12 @@ def print_all():
         print("Release Date: ", games[key][5])
         print("Rating: ", games[key][6])
         print("Single/Multi: ", games[key][7])
-        print("Beat the game?: ", games[key][8])    
-        print("Purchase Date: ", games[key][9])
-        print("Notes: ", games[key][10])
-        print("----------------------")  
+        print("Price: ", games[key][8])
+        print("Beat the game?: ", games[key][9])    
+        print("Purchase Date: ", games[key][10])
+        print("Notes: ", games[key][11])
+        print("----------------------")          
+   
    
 
         
@@ -65,10 +133,14 @@ def genre():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
-            print("----------------------")    
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
+            print("----------------------")                
+          
+        else:
+            print("Oops, not found!")
             
 def title():
     title = input("What is the Title? ")
@@ -84,10 +156,15 @@ def title():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
-            print("----------------------")                 
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
+            print("----------------------")                             
+       
+        else:
+            print("Oops, not found!")       
+
 
 def developer():
     developer = input("Who is the Developer? ")
@@ -103,10 +180,14 @@ def developer():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
-            print("----------------------")  
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
+            print("----------------------")   
+        
+        else:
+            print("Oops, not found!")            
 
 def publisher():
     publisher = input("Who is the Publisher? ")
@@ -122,10 +203,14 @@ def publisher():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
-            print("----------------------")  
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
+            print("----------------------")              
+
+        else:
+            print("Oops, not found!")
 
 def system():
     system = input("What is the System? ")
@@ -141,10 +226,14 @@ def system():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
-            print("----------------------")  
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
+            print("----------------------")    
+            
+        else:
+            print("Oops, not found!")            
 
 def release():
     release = input("What is the Release Date? ")
@@ -160,10 +249,14 @@ def release():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
             print("----------------------")  
+            
+        else:
+            print("Oops, not found!")            
             
 def rating():
     rating = input("What is the Rating? ")
@@ -179,10 +272,14 @@ def rating():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
-            print("----------------------")  
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
+            print("----------------------")   
+            
+        else:
+            print("Oops, not found!")            
             
 def sing_multi():
     sing_multi = input("What is the Category? ")
@@ -198,16 +295,43 @@ def sing_multi():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
-            print("----------------------")  
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
+            print("----------------------")   
+            
+        else:
+            print("Oops, not found!")            
+            
+def price():
+    price = input("What is the Price? ")
+    for key in games.keys():
+        entry = games[key]
+        if price == entry[8]:
+            print()
+            print("Genre: ", entry[0])
+            print("Title: ", entry[1])
+            print("Developer: ", entry[2])
+            print("Publisher: ", entry[3])
+            print("System: ", entry[4])
+            print("Release Date: ", entry[5])
+            print("Rating: ", entry[6])
+            print("Single/Multi: ", entry[7])
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
+            print("----------------------") 
+            
+        else:
+            print("Oops, not found!")            
 
 def beat_game():
     beat_game = input("Have you beat the game? ")
     for key in games.keys():
         entry = games[key]
-        if beat_game == entry[8]:
+        if beat_game == entry[9]:
             print()
             print("Genre: ", entry[0])
             print("Title: ", entry[1])
@@ -217,16 +341,20 @@ def beat_game():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
-            print("----------------------")  
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
+            print("----------------------") 
+            
+        else:
+            print("Oops, not found!")            
 
 def purchase():
     purchase = input("When did you purchase it? ")
     for key in games.keys():
         entry = games[key]
-        if purchase == entry[9]:
+        if purchase == entry[10]:
             print()
             print("Genre: ", entry[0])
             print("Title: ", entry[1])
@@ -236,10 +364,14 @@ def purchase():
             print("Release Date: ", entry[5])
             print("Rating: ", entry[6])
             print("Single/Multi: ", entry[7])
-            print("Beat the game?: ", entry[8])    
-            print("Purchase Date: ", entry[9])
-            print("Notes: ", entry[10])
+            print("Price: ", entry[8])
+            print("Beat the game?: ", entry[9])    
+            print("Purchase Date: ", entry[10])
+            print("Notes: ", entry[11])
             print("----------------------")  
+            
+        else:
+            print("Oops, not found!")            
             
   
             
@@ -256,8 +388,9 @@ def search_games():
     6) Search by Release Date:
     7) Search by Rating:
     8) Search by Category:
-    9) Search by Games Beat:
-    10) Search by Purchase Date:
+    9) Search by Price:
+   10) Search by Games Beat:
+   11) Search by Purchase Date:
    
     Q) Quit
     ''')
@@ -278,11 +411,13 @@ def search_games():
         release()
     elif choice == "7":
         rating()
-    elif choice() == "8":
+    elif choice == "8":
         sing_multi()
-    elif choice() == "9":
+    elif choice == "9":
+        price()
+    elif choice == "10":
         beat_game()
-    elif choice() == "10":
+    elif choice == "11":
         purchase()
     elif choice == "Q" or choice == "q":
         keep_going = False 
@@ -292,11 +427,12 @@ while keep_going:
    
     MAIN MENU
     1) Add New Game
-    2) Print All Games
-    3) Search Game By Title
-    4) Remove A Game
-    5) Save Database
-    6) Search for Games
+    2) Edit Game
+    3) Print All Games
+    4) Search Game By Title
+    5) Remove A Game
+    6) Save Database
+    7) Search for Games
    
    
     Q) Quit
@@ -307,14 +443,16 @@ while keep_going:
     if choice == "1":
         add_game()
     elif choice == "2":
-        print_all()
+        edit_game()
     elif choice == "3":
-        search_games()
+        print_all()
     elif choice == "4":
-        remove_game()
+        search_games()
     elif choice == "5":
-        save_data()
+        remove_game()
     elif choice == "6":
+        save_data()
+    elif choice == "7":
         search_games()
     elif choice == "Q" or choice == "q":
         quit()
