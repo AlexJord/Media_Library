@@ -44,6 +44,10 @@ def add_game():
     
 def edit_game():
     print("Here is the Library: ")
+    if key in games:
+        valid = True
+    else:
+        games.pop()
     for key in games.keys():
         print(key, "-", games[key][1])
         
@@ -99,7 +103,18 @@ def print_all():
         
         
 def remove_game():
-    print("\nremove_game ran")
+    remove_key = None
+    for key in games.keys():
+        print(key, "-", games[key][1])    
+   
+    remove_key = input("Which game would you like to remove?: ")
+    remove_key = len(games) + 1
+    if remove_game == games.pop(key):
+        print("Game deleted")
+    else:
+        valid = False
+    
+    
    
 def save_data():
     datafile = open("game_lib.pickle", "wb")
@@ -108,7 +123,16 @@ def save_data():
     print("Saved")
    
 def quit():
-    print("\nquit ran")
+    print("Quit ran")
+    quit = input("Would you like to save the database? (y/n): ")
+    if quit == "y":
+        datafile = open("game_lib.pickle", "wb")
+        pickle.dump(games, datafile)
+        datafile.close()
+        print("Saved")
+            
+        
+    exit()
    
 keep_going = True
 
