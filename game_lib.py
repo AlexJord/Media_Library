@@ -103,16 +103,24 @@ def print_all():
         
         
 def remove_game():
-    remove_key = None
     for key in games.keys():
         print(key, "-", games[key][1])    
    
-    remove_key = input("Which game would you like to remove?: ")
-    remove_key = len(games) + 1
-    if remove_game == games.pop(key):
-        print("Game deleted")
-    else:
-        valid = False
+    selected_key = input("What is the game you would like to delete?: ")
+    
+    try:
+        selected_key = int(selected_key)
+        confirm_deletion = input("Would you like to continue?: ")
+        if confirm_deletion:
+            for keys in range(1, len(games) + 1):
+                if keys >= selected_key and keys != len(games):
+                    games[keys] = games[keys + 1]
+                else:
+                    if keys == len(games):
+                        games.pop(keys)
+    except Exception as e:
+        print("Failure to remove game")
+        print(e)
     
     
    
