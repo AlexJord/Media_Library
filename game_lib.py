@@ -44,10 +44,6 @@ def add_game():
     
 def edit_game():
     print("Here is the Library: ")
-    if key in games:
-        valid = True
-    else:
-        games.pop()
     for key in games.keys():
         print(key, "-", games[key][1])
         
